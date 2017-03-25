@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 from datetime import datetime
-from lxml import html
 from functools import reduce
+from lxml import html
 import pandas as pd
 import requests
 
