@@ -32,4 +32,9 @@ def channel_to_df(channel):
 def process(soup):
     return [channel_to_df(channel) for channel in soup.find_all('channel')]
 
+def get_text(page):
+    [fig.extract() for fig in page.find('dt-article').find_all(['figure', 'script', 'style'])]
+    text = reduce(lambda x, y: f"{x}{y.find(text=True)}", page.find_all('p'))
+
+
 channels = process(soupify(ingredients(url, path)))
